@@ -1,8 +1,0 @@
-@import 'D:\React JS\course\react-http\node_modules\normalize.css';
-@import 'D:\React JS\course\react-http\node_modules\@blueprintjs\core\lib\css\blueprint.css';
-@import 'D:\React JS\course\react-http\node_modules\@blueprintjs\icons\lib\css\blueprint-icons.css';
-
-body{
-	display: flex;
-	justify-content: center;
-}
