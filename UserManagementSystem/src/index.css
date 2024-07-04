@@ -1,0 +1,8 @@
+@import 'C:\Users\Raman\Desktop\Git\React_JS\react-Http\node_modules\normalize.css';
+@import 'C:\Users\Raman\Desktop\Git\React_JS\react-Http\node_modules\@blueprintjs\core\lib\css\blueprint.css';
+@import 'C:\Users\Raman\Desktop\Git\React_JS\react-Http\node_modules\@blueprintjs\icons\lib\css\blueprint-icons.css';
+
+body{
+  display: flex;
+  justify-content: center;
+}
