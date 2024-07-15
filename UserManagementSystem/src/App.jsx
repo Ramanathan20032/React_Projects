@@ -16,6 +16,7 @@ function App() {
 
 	useEffect(() => {
 		fetch('https://jsonplaceholder.typicode.com/users') // local api [Method : GET] (it will be the default method) getting from the server to read
+		// to read the data.
 		.then((response) => response.json())
 		.then((data) => setUsers(data)) 
 	},[]) // [] - to call the useEffect only one time, after the App() component called.
