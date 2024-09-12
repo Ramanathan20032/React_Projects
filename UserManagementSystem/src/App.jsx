@@ -13,6 +13,7 @@ function App() {
 	const [newName, setNewName] = useState('')
 	const [newEmail, setNewEmail] = useState('')
 	const [newWebsite, setNewWebsite] = useState('')
+	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
 		fetch('https://jsonplaceholder.typicode.com/users') // local api [Method : GET] (it will be the default method) getting from the server to read
@@ -30,7 +31,7 @@ function App() {
 		const website = newWebsite.trim()
 
 		if(name && email && website){
-
+			setLoading(true);  // Start loading
 			fetch('https://jsonplaceholder.typicode.com/users',
 				{
 					method : 'POST',   // To POST the data to the server.
@@ -61,6 +62,7 @@ function App() {
 				setNewEmail('')
 				setNewWebsite('')
 			})
+			.finally(() => setLoading(false));  // End loading
 		}
 	}
 
@@ -77,6 +79,7 @@ function App() {
 	// function for updating the data of the user using PUT (request method)   PUT - /posts/1
 	function updateUser(id){
 		const user = users.find((user) => user.id === id);      // finding the particular user which is onclicked() 
+		setLoading(true); // Start loading
 		fetch(`https://jsonplaceholder.typicode.com/users/${id}`,
 			{
 				method : 'PUT',
@@ -93,10 +96,14 @@ function App() {
 				timeout : '3000'
 			})
 		})
+		.finally(() => {
+			setLoading(false); // Stop loading
+		});
 	}
 
 	//function for deleting the data using DELETE (request method)  DELETE - /posts/1
 	function deleteUser(id){
+		setLoading(true); // Start loading
 		fetch(`https://jsonplaceholder.typicode.com/users/${id}`,
 			{
 				method : 'DELETE'
@@ -113,6 +120,9 @@ function App() {
 				timeout : '3000'
 			})
 		})
+		.finally(() => {
+			setLoading(false); // Stop loading
+		});
 	}
 
   return (
@@ -178,6 +188,7 @@ function App() {
 					</td>
 					<td>
 						{/* Button - button tag */}
+						{loading && <p style={{ color: '#78281f' }}>Loading...</p>}
 						<Button intent='success' onClick={addUser}>
 							Add User
 						</Button>
