@@ -188,6 +188,7 @@ function App() {
 					</td>
 					<td>
 						{/* Button - button tag */}
+						{/* UI for loading time */}
 						{loading && <p style={{ color: '#78281f' }}>Loading...</p>}
 						<Button intent='success' onClick={addUser}>
 							Add User
